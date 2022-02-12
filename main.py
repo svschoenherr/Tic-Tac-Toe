@@ -69,14 +69,14 @@ def game():
 
         # Implement game logic to end game
         # Check if any line contains equal mark
-        if moves[1] == moves[2] == moves[3] or \
-            moves[4] == moves[5] == moves[6] or \
-            moves[7] == moves[8] == moves[9] or \
-            moves[1] == moves[4] == moves[7] or \
-            moves[2] == moves[5] == moves[8] or \
-            moves[3] == moves[6] == moves[9] or \
-            moves[1] == moves[5] == moves[9] or \
-            moves[3] == moves[5] == moves[7]:
+        if moves[1] == moves[2] == moves[3] != " " or \
+            moves[4] == moves[5] == moves[6] != " "  or \
+            moves[7] == moves[8] == moves[9] != " "  or \
+            moves[1] == moves[4] == moves[7] != " " or \
+            moves[2] == moves[5] == moves[8] != " "  or \
+            moves[3] == moves[6] == moves[9] != " "  or \
+            moves[1] == moves[5] == moves[9] != " " or \
+            moves[3] == moves[5] == moves[7] != " " :
             game_is_finished = True
 
     # If game is finished due to a completed line, declare winner based on the last move
@@ -92,7 +92,8 @@ def game():
             print("It's a draw!")
 
         if game_is_finished and input("\nWanna play again? Y/N ").upper() == "Y":
-            game()
+            moves = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}
+            game()            
 game()
 
 # TODO Feat2
