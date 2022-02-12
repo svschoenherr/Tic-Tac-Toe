@@ -45,17 +45,15 @@ def game():
         else:
             player_symbol = "X"
 
+        move_is_valid = False
+        while move_is_valid == False:
+            move = input(f"Player {player}, please choose between 1 and 9 to set your {player_symbol}: ")
+            board = board.replace(move, player_symbol)
+            moves[int(move)] = player_symbol
+
+            move_is_valid = True
+
         count += 1
-        if count % 2 == 1:
-            move = input("Player 1, please choose between 1 and 9 to set your 'O': ")
-            # Add players moves to board
-            board = board.replace(move, "O")
-            moves[int(move)] = "O"
-        else:
-            # Add players moves to board
-            move = input("Player 2, please choose between 1 and 9 to set your 'X': ")
-            board = board.replace(move, "X")
-            moves[int(move)] = "X"
 
         print(board)
 
