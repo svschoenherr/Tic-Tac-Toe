@@ -46,15 +46,23 @@ def game():
             player_symbol = "X"
 
         move_is_valid = False
-        while move_is_valid == False:
+        # TODO Feat1
+        # Implement input checks for not allowed chars,
+        while not move_is_valid:
             move = input(f"Player {player}, please choose between 1 and 9 to set your {player_symbol}: ")
-            board = board.replace(move, player_symbol)
-            moves[int(move)] = player_symbol
+            if not move.isdigit() or int(move) < 1 or int(move) > 9:
+                print("\nInvalid input! Please enter a number between 1 and 9.\n")
+                print(board)
+            else:
+                # TODO Check for move has been taken
+                move_is_valid = True
 
-            move_is_valid = True
+        # Add players moves to board
+        board = board.replace(move, player_symbol)
+        moves[int(move)] = player_symbol
 
         count += 1
-
+ 
         print(board)
 
         # Implement game logic to end game
@@ -81,13 +89,9 @@ def game():
             game_is_finished = True
             print("It's a draw!")
 
-        if game_is_finished and input("Wanna play again? Y/N ").upper() == "Y":
+        if game_is_finished and input("\nWanna play again? Y/N ").upper() == "Y":
             game()
 game()
-
-# TODO Feat1
-    # Implement input checks for not allowed chars,
-    # already blocked positions
 
 # TODO Feat2
     # Implement random "KI" moves
