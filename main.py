@@ -68,7 +68,7 @@ while not game_is_finished:
             print("Player 2 wins")
 
     # End game if no one has won
-    if count == 9:
+    if count == 9 and not game_is_finished:
         game_is_finished = True
         print("It's a draw!")
 
