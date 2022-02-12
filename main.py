@@ -55,14 +55,13 @@ def game():
                 print("\nInvalid input! Please enter a number between 1 and 9.\n")
                 print_board()
             # Check for move has been taken
-            elif not type(moves[int(move)]) == int:
+            elif not moves[int(move)] == " ":
                     print("\nNice try! Please enter a number of a move thas has not been made, yet.\n")
                     print_board()
             else:
                 move_is_valid = True
 
         # Add players moves to board
-        board = board.replace(move, player_symbol)
         moves[int(move)] = player_symbol
 
         count += 1 
