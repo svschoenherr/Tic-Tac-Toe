@@ -1,3 +1,16 @@
+# TODO Implement board
+# TODO Implement instructions for player
+# TODO Ask for players move as long as game has not finished
+# TODO Add players moves to board
+# TODO Implement game logic to end game
+# TODO Feat1
+    # Implement input checks for not allowed chars,
+    # already blocked positions
+# TODO Feat2
+    # Implement random "KI" moves
+
+
+
 # Implement board
 board = '''
      |     |   
@@ -10,8 +23,6 @@ _____|_____|____
   7  |  8  |  9
      |     |
 '''
-
-# Implement logo
 logo = '''
 | | (_)    | |           | |            
 | |_ _  ___| |_ __ _  ___| |_ ___   ___ 
@@ -31,7 +42,7 @@ count = 0
 # Initialise moves dict to track the moves the players have done
 moves = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}
 
-# Ask for players move as long as game has not finished
+# Ask for players move as long as game is not finished
 game_is_finished = False
 while not game_is_finished:
     count += 1
@@ -41,17 +52,13 @@ while not game_is_finished:
         board = board.replace(move, "O")
         moves[int(move)] = "O"
     else:
-        # Add players moves to board
         move = input("Player 2, please choose between 1 and 9 to set your 'X': ")
         board = board.replace(move, "X")
         moves[int(move)] = "X"
 
     print(board)
 
-    if count == 9:
-        game_is_finished = True
-
-# TODO Implement game logic to end game
+# Implement game logic to end game
     # Check if any line contains equal sign
     if moves[1] == moves[2] == moves[3] or \
         moves[4] == moves[5] == moves[6] or \
@@ -62,10 +69,15 @@ while not game_is_finished:
         moves[1] == moves[5] == moves[9] or \
         moves[3] == moves[5] == moves[7]:
         game_is_finished = True
+    
+    # If game is finished due to a completed line, declare winner based on the last move
+    if game_is_finished:
+        if count % 2 == 1:
+            print("Player 1 wins")
+        else:
+            print("Player 2 wins")
 
-# TODO Feat1
-    # Implement input checks for not allowed chars,
-    # already blocked positions
-
-# TODO Feat2
-    # Implement random "KI" moves
+    # End game if no one has won
+    if count == 9:
+        game_is_finished = True
+        print("It's a draw!")
