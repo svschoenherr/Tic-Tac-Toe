@@ -48,10 +48,7 @@ while not game_is_finished:
 
     print(board)
 
-    if count == 9:
-        game_is_finished = True
-
-# TODO Implement game logic to end game
+    # Implement game logic to end game
     # Check if any line contains equal sign
     if moves[1] == moves[2] == moves[3] or \
         moves[4] == moves[5] == moves[6] or \
@@ -62,6 +59,18 @@ while not game_is_finished:
         moves[1] == moves[5] == moves[9] or \
         moves[3] == moves[5] == moves[7]:
         game_is_finished = True
+
+# If game is finished due to a completed line, declare winner based on the last move
+    if game_is_finished:
+        if count % 2 == 1:
+            print("Player 1 wins")
+        else:
+            print("Player 2 wins")
+
+    # End game if no one has won
+    if count == 9:
+        game_is_finished = True
+        print("It's a draw!")
 
 # TODO Feat1
     # Implement input checks for not allowed chars,
