@@ -45,16 +45,18 @@ def game():
         else:
             player_symbol = "X"
 
+        # Implement input checks for not allowed chars
         move_is_valid = False
-        # TODO Feat1
-        # Implement input checks for not allowed chars,
         while not move_is_valid:
             move = input(f"Player {player}, please choose between 1 and 9 to set your {player_symbol}: ")
             if not move.isdigit() or int(move) < 1 or int(move) > 9:
                 print("\nInvalid input! Please enter a number between 1 and 9.\n")
                 print(board)
+            # Check for move has been taken
+            elif not type(moves[int(move)]) == int:
+                    print("\nNice try! Please enter a number of a move thas has not been made, yet.\n")
+                    print(board)
             else:
-                # TODO Check for move has been taken
                 move_is_valid = True
 
         # Add players moves to board
