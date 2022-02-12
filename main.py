@@ -9,30 +9,35 @@ logo = '''
 print(logo)
 
 # Implement instructions for player
-print("Welcome to Tic Tac Toe! This is a two player game to place your symbol 'X' or 'O' into the grid. The one having three in one row wins! \nPlease choose your position by typing a number between 1 and 9.\n")
+print("Welcome to Tic Tac Toe! This is a two player game to place your symbol 'X' or 'O' into the grid. The one having three in one row wins! \nPlease choose your position by typing a number between 1 and 9.")
 
-def game():
-    # Implement board
-    board = '''
+# Initialise moves dict to track the moves the players have done
+moves = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}
+
+def print_board():
+    board = f'''
          |     |   
-      1  |  2  |  3
+      {moves[1]}  |  {moves[2]}  |  {moves[3]}
     _____|_____|____
          |     |   
-      4  |  5  |  6
+      {moves[4]}  |  {moves[5]}  |  {moves[6]}
     _____|_____|____
          |     |   
-      7  |  8  |  9
+      {moves[7]}  |  {moves[8]}  |  {moves[9]}
          |     |
     '''
     print(board)
 
+def game():
+    print_board()
+
+    global moves
+    moves = {1: " ", 2: " ", 3: " ", 4: " ", 5: " ", 6: " ", 7: " ", 8: " ", 9: " "}
+
     # Count used to end game after all 9 moves and to decide who has one, if that's the case
     count = 0
 
-    # Initialise moves dict to track the moves the players have done
-    moves = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}
-
-    # Ask for players move as long as game has not finished
+     # Ask for players move as long as game has not finished
     game_is_finished = False
     while not game_is_finished:
         # Select player based on move count
@@ -48,11 +53,11 @@ def game():
             move = input(f"Player {player}, please choose between 1 and 9 to set your {player_symbol}: ")
             if not move.isdigit() or int(move) < 1 or int(move) > 9:
                 print("\nInvalid input! Please enter a number between 1 and 9.\n")
-                print(board)
+                print_board()
             # Check for move has been taken
             elif not type(moves[int(move)]) == int:
                     print("\nNice try! Please enter a number of a move thas has not been made, yet.\n")
-                    print(board)
+                    print_board()
             else:
                 move_is_valid = True
 
@@ -61,7 +66,7 @@ def game():
         moves[int(move)] = player_symbol
 
         count += 1 
-        print(board)
+        print_board()
 
         # Implement game logic to end game
         # Check if any line contains equal mark
