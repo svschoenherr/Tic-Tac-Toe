@@ -1,4 +1,16 @@
-# TODO Implement board
+# Implement board
+board = '''
+     |     |   
+  1  |  2  |  3
+_____|_____|____
+     |     |   
+  4  |  5  |  6
+_____|_____|____
+     |     |   
+  7  |  8  |  9
+     |     |
+'''
+
 # TODO Implement instructions for player
 # TODO Ask for players move as long as game has not finished
 # TODO Add players moves to board
