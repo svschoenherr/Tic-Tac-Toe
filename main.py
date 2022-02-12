@@ -13,7 +13,6 @@ print("Welcome to Tic Tac Toe! This is a two player game to place your symbol 'X
 
 def game():
     # Implement board
-    global board
     board = '''
          |     |   
       1  |  2  |  3
@@ -25,7 +24,6 @@ def game():
       7  |  8  |  9
          |     |
     '''
-
     print(board)
 
     # Count used to end game after all 9 moves and to decide who has one, if that's the case
@@ -37,7 +35,6 @@ def game():
     # Ask for players move as long as game has not finished
     game_is_finished = False
     while not game_is_finished:
-
         # Select player based on move count
         player = count % 2 + 1
         if player == 1:
@@ -63,12 +60,11 @@ def game():
         board = board.replace(move, player_symbol)
         moves[int(move)] = player_symbol
 
-        count += 1
- 
+        count += 1 
         print(board)
 
         # Implement game logic to end game
-        # Check if any line contains equal sign
+        # Check if any line contains equal mark
         if moves[1] == moves[2] == moves[3] or \
             moves[4] == moves[5] == moves[6] or \
             moves[7] == moves[8] == moves[9] or \
