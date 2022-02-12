@@ -37,6 +37,14 @@ def game():
     # Ask for players move as long as game has not finished
     game_is_finished = False
     while not game_is_finished:
+
+        # Select player based on move count
+        player = count % 2 + 1
+        if player == 1:
+            player_symbol = "O"
+        else:
+            player_symbol = "X"
+
         count += 1
         if count % 2 == 1:
             move = input("Player 1, please choose between 1 and 9 to set your 'O': ")
