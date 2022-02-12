@@ -75,6 +75,8 @@ def game():
             game_is_finished = True
             print("It's a draw!")
 
+        if game_is_finished and input("Wanna play again? Y/N ").upper() == "Y":
+            game()
 game()
 
 # TODO Feat1
