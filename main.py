@@ -21,7 +21,10 @@ logo = '''
 '''
 print(logo)
 
-# TODO Implement instructions for player
+# Implement instructions for player
+print("Welcome to Tic Tac Toe! This is a two player game to place your symbol 'X' or 'O' into the grid. The one having three in one row wins! \nPlease choose your position by typing a number between 1 and 9.\n")
+print(board)
+
 # TODO Ask for players move as long as game has not finished
 # TODO Add players moves to board
 # TODO Implement game logic to end game
