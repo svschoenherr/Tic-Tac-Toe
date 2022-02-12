@@ -25,11 +25,18 @@ print(logo)
 print("Welcome to Tic Tac Toe! This is a two player game to place your symbol 'X' or 'O' into the grid. The one having three in one row wins! \nPlease choose your position by typing a number between 1 and 9.\n")
 print(board)
 
-# TODO Ask for players move as long as game has not finished
+# Ask for players move as long as game has not finished
+game_is_finished = False
+while not game_is_finished:
+    move = input("Please choose between 1 and 9 to set your mark: ")
+    game_is_finished = True
 # TODO Add players moves to board
+
 # TODO Implement game logic to end game
+
 # TODO Feat1
     # Implement input checks for not allowed chars,
     # already blocked positions
+
 # TODO Feat2
     # Implement random "KI" moves
