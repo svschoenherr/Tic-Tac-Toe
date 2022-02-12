@@ -30,11 +30,16 @@ count = 0
 # Ask for players move as long as game has not finished
 game_is_finished = False
 while not game_is_finished:
-    move = input("Please choose between 1 and 9 to set your mark: ")
     count += 1
+    if count % 2 == 1:
+        move = input("Player 1, please choose between 1 and 9 to set your 'O': ")
+        # Add players moves to board
+        board = board.replace(move, "O")
+    else:
+        # Add players moves to board
+        move = input("Player 2, please choose between 1 and 9 to set your 'X': ")
+        board = board.replace(move, "X")
 
-    # Add players moves to board
-    board = board.replace(move, "O")
     print(board)
 
     if count == 9:
