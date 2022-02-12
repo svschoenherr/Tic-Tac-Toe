@@ -29,6 +29,11 @@ print(board)
 game_is_finished = False
 while not game_is_finished:
     move = input("Please choose between 1 and 9 to set your mark: ")
+
+    # Add players moves to board
+    board = board.replace(move, "O")
+    print(board)
+
     game_is_finished = True
 # TODO Add players moves to board
 
